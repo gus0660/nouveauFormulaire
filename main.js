@@ -91,6 +91,10 @@ e.preventDefault()
 checkAge()
 isValidEmail()
 })
+// le userName ne doit pas contenir : root, afpa et deus
+// Les noms et prénoms ne pourront pas contenir de chiffres et devront avoir une taille minimale de 3 caractères et un max de 15.
+// Le mot de passe a huit caractères ou plus. Et il doit contenir 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et au moins un caractère spécial dans cet ensemble ( !@#$%^&*).
+
 // let userNameOk = checkUserName(),
 // nameOk = checkName();
 
