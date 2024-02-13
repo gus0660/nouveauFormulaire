@@ -101,3 +101,9 @@ function isValidEmail(email) {
     const regex = /^(?!root@afpa\.fr|afpa@afpa\.com|deus@afpa\.org)(?!.*@yopmail\.com$)[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return regex.test(email);
 }
+// calculateur d'age
+function dateCalclator() {
+    const dateSaisie = document.querySelector("#dob");
+    let dateActuelle = new Date(dateSaisie);
+    
+}
