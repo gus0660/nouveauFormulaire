@@ -97,3 +97,7 @@ if(isFormValid){
     console.log('Tout est Ok pour l\'envoi')
 }
 })
+function isValidEmail(email) {
+    const regex = /^(?!root@afpa\.fr|afpa@afpa\.com|deus@afpa\.org)(?!.*@yopmail\.com$)[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return regex.test(email);
+}
