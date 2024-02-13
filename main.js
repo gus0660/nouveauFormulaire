@@ -94,7 +94,7 @@ isValidEmail()
 // le userName ne doit pas contenir : root, afpa et deus
 // Les noms et prénoms ne pourront pas contenir de chiffres et devront avoir une taille minimale de 3 caractères et un max de 15.
 // Le mot de passe a huit caractères ou plus. Et il doit contenir 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et au moins un caractère spécial dans cet ensemble ( !@#$%^&*).
-// il faut mettre un écouteur d'évenement sur chaque input pour checker si c'est bon
+
 
 // let userNameOk = checkUserName(),
 // nameOk = checkName();
@@ -122,3 +122,47 @@ function checkAge() {
       }
     }
 
+// il faut mettre un écouteur d'évenement sur chaque input pour checker si c'est bon
+                                  // Sélection des éléments d'entrée
+const userNameInput = document.getElementById('userName');
+const nomInput = document.getElementById('nom');
+const prenomInput = document.getElementById('prenom');
+const passwordInput = document.getElementById('password');
+
+                             // Ajout d'un écouteur d'événement 'input' à chaque champ
+// userNameInput.addEventListener('input', () => {
+    // const userName = userNameInput.value.toLowerCase(); // Convertir en minuscules pour vérifier sans distinction de cas
+
+                             // Vérifier si le userName contient les valeurs interdites
+    // if (userName.includes('root') || userName.includes('afpa') || userName.includes('deus')) {
+        // alert('Le nom d\'utilisateur ne peut pas contenir "root", "afpa" ou "deus"');
+    // }
+// });
+// 
+// nomInput.addEventListener('input', () => {
+    // const nom = nomInput.value;
+
+                             // Vérifier si le nom a une longueur valide
+    // if (nom.length < 3 || nom.length > 15) {
+        // alert('Le nom doit avoir une longueur minimale de 3 caractères et maximale de 15 caractères.');
+    // }
+// });
+// 
+// prenomInput.addEventListener('input', () => {
+    // const prenom = prenomInput.value;
+
+                            // Vérifier si le prénom a une longueur valide
+    // if (prenom.length < 3 || prenom.length > 15) {
+        // alert('Le prénom doit avoir une longueur minimale de 3 caractères et maximale de 15 caractères.');
+    // }
+// });
+// 
+// passwordInput.addEventListener('input', () => {
+    // const password = passwordInput.value;
+
+                           // Vérifier si le mot de passe répond aux critères requis
+    // const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+    // if (!passwordRegex.test(password)) {
+        // alert('Le mot de passe doit avoir au moins 8 caractères, au moins une minuscule, une majuscule, un chiffre et un caractère spécial parmi !@#$%^&*');
+    // }
+// });
