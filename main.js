@@ -89,6 +89,7 @@ const checkName = () => {
 form.addEventListener('submit',(e) => {
 e.preventDefault()
 checkAge()
+isValidEmail()
 })
 // let userNameOk = checkUserName(),
 // nameOk = checkName();
@@ -107,7 +108,8 @@ function checkAge() {
     const dateSaisie = document.querySelector("#dob").value;// je crée une constante qui capture l'age saisi dans le input "#dob"
     let bd = new Date(dateSaisie);//le crée une let qui est la conversion de la date saisie(dateSaisie) en objet que javascript comprend (new Date)
     let twentyOneDb = new Date();//création d'une let qui correspond à la date actuelle(de l'ordi) = new Date
-    twentyOneDb.setFullYear(twentyOneDb.getFullYear() - 21);//prend le
+    twentyOneDb.setFullYear(twentyOneDb.getFullYear() - 21);//produit la date actuelle(twentyOneDb) arrondie à l'année et y applique l'opération:
+    // twentyOneDb je prend et j'arrondi à l'année(.getFullYear()) et j'y fait moins 21 ;;resultat une année de ref.
     if (bd <= twentyOneDb) {
         alert('Vous avez plus de 21 ans.');
       } else {
