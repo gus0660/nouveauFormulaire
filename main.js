@@ -88,29 +88,30 @@ const checkName = () => {
 // Je dois mettre en place un ecouteur d'évenement sur le submit de ma forme qui doit empecher la soumission du formulaire au serveur afin de pouvoir emettre les erreurs coté front sans rechargement de la page
 form.addEventListener('submit',(e) => {
 e.preventDefault()
-
-let userNameOk = checkUserName(),
-nameOk = checkName();
-
-let isFormValid = userNameOk && nameOk;
-if(isFormValid){
-    console.log('Tout est Ok pour l\'envoi')
-}
+checkAge()
 })
+// let userNameOk = checkUserName(),
+// nameOk = checkName();
+
+// let isFormValid = userNameOk && nameOk;
+// if(isFormValid){
+//     console.log('Tout est Ok pour l\'envoi')
+// }
+// })
 function isValidEmail(email) {
     const regex = /^(?!root@afpa\.fr|afpa@afpa\.com|deus@afpa\.org)(?!.*@yopmail\.com$)[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return regex.test(email);
 }
 // pour valider l'age
 function checkAge() {
-    const dateSaisie = document.querySelector("#dob");// je crée une constante qui capture l'age saisi dans le input "#dob"
+    const dateSaisie = document.querySelector("#dob").value;// je crée une constante qui capture l'age saisi dans le input "#dob"
     let bd = new Date(dateSaisie);//le crée une let qui est la conversion de la date saisie(dateSaisie) en objet que javascript comprend (new Date)
     let twentyOneDb = new Date();//création d'une let qui correspond à la date actuelle(de l'ordi) = new Date
     twentyOneDb.setFullYear(twentyOneDb.getFullYear() - 21);//prend le
     if (bd <= twentyOneDb) {
-        alert('Vous avez plus de 18 ans.');
+        alert('Vous avez plus de 21 ans.');
       } else {
-        alert('Vous devez avoir au moins 18 ans pour continuer.');
+        alert('Vous devez avoir au moins 21 ans pour continuer.');
       }
     }
 
