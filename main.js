@@ -101,9 +101,16 @@ function isValidEmail(email) {
     const regex = /^(?!root@afpa\.fr|afpa@afpa\.com|deus@afpa\.org)(?!.*@yopmail\.com$)[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return regex.test(email);
 }
-// calculateur d'age
-function dateCalclator() {
-    const dateSaisie = document.querySelector("#dob");
-    let dateActuelle = new Date(dateSaisie);
-    
-}
+// pour valider l'age
+function checkAge() {
+    const dateSaisie = document.querySelector("#dob");// je crée une constante qui capture l'age saisi dans le input "#dob"
+    let bd = new Date(dateSaisie);//le crée une let qui est la conversion de la date saisie(dateSaisie) en objet que javascript comprend (new Date)
+    let twentyOneDb = new Date();//création d'une let qui correspond à la date actuelle(de l'ordi) = new Date
+    twentyOneDb.setFullYear(twentyOneDb.getFullYear() - 21);//prend le
+    if (bd <= twentyOneDb) {
+        alert('Vous avez plus de 18 ans.');
+      } else {
+        alert('Vous devez avoir au moins 18 ans pour continuer.');
+      }
+    }
+
