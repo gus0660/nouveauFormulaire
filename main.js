@@ -61,12 +61,14 @@ function verifAge(element) {
   twentyOneDb.setFullYear(twentyOneDb.getFullYear() - 21); //produit la date actuelle(twentyOneDb) arrondie à l'année et y applique l'opération:
   // twentyOneDb je prend et j'arrondi à l'année(.getFullYear()) et j'y fait moins 21 ;;resultat une année de ref.
   if (bd <= twentyOneDb) {
-    // showSuccess(dateSaisie);
     return false
   } else {
     return true
   }
 }
+
+// pour le fonctionnement même du code il faut faire des fonctions fléchées qui commencent par la création 
+// d'une constante et qui vont utiliser les fonctions simples qui ont été précédement réalisées.
 const checkUserName = () => {
   let valid = false;
   const min = 3,
