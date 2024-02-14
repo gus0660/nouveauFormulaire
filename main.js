@@ -114,15 +114,15 @@ function checkAge() {
 }
 // je récapitule les fonctions que j'ai déjas en place :
 // fonction qui vérifie si la valeur d'un input est vide :
-// function isRequired
+// function isRequired()
 // fonction de vérification de taille :
-// function isBetween
+// function isBetween()
 // fonction qui interdit les mots "root", "afpa", "deus" et qui n'autorise que la saisie de lettre :
-// function isNameValid
+// function isNameValid()
 // fonction qui permette d'afficher les erreurs en rouge :
-// function showError
+// function showError()
 // fonction qui permette d'afficher l'element valide en vert :
-// function showSuccess
+// function showSuccess()
 // 
 // il faut mettre un écouteur d'évenement sur chaque input pour checker si c'est bon
 // Sélection des éléments d'entrée
