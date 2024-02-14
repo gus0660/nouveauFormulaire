@@ -133,16 +133,18 @@ const userNameInput = document.querySelector("#userName");
 const nomInput = document.querySelector("#name");
 const prenomInput = document.querySelector("#firstname");
 const passwordInput = document.querySelector("#password");
-const emailInput = document.querySelector('#email')
+const emailInput = document.querySelector('#email');
+const ageInput = document.querySelector('#dob');
 
 document.addEventListener('input', function(e) {
   const target = e.target;
   if (target === userNameInput) {
-    if ( userNameInput.value.includes("root") || userNameInput.value.includes("afpa") || userNameInput.value.includes("deus")) {
-        alert('Le nom d\'utilisateur ne peut pas contenir "root", "afpa" ou "deus"');
+    if (!isRequired(userNameInput.value)) {
+      alert('Le nom d\'utilisateur est requis.');
+    } else if (!isNameValid(userNameInput.value)) {
+      alert('Le nom d\'utilisateur ne peut pas contenir "root", "afpa" ou "deus" et doit uniquement contenir des lettres.');
     }
 }
-
 if (target === nomInput) {
     if (nomInput.value.length < 3 || nomInput.value.length > 15) {
         alert("Le nom doit avoir une longueur minimale de 3 caractères et maximale de 15 caractères.");
