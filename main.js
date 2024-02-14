@@ -136,7 +136,7 @@ const passwordInput = document.querySelector("#password");
 const emailInput = document.querySelector('#email');
 const ageInput = document.querySelector('#dob');
 
-document.addEventListener('input', function(e) {
+form.addEventListener('input', function(e) {
   const target = e.target;
   if (target === userNameInput) {
     if (!isRequired(userNameInput.value)) {
