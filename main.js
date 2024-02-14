@@ -123,8 +123,6 @@ const checkName = () => {
   return valid;
 };
 
-
-
 const checkFirstname = () => {
   let valid = false
   if(!isRequired(firstNameEl.value)){
