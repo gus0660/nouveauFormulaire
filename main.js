@@ -87,6 +87,7 @@ const checkName = () => {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   checkAge();
+  isBetween();
   isValidEmail();
 });
 // le userName ne doit pas contenir : root, afpa et deus
@@ -107,6 +108,7 @@ function checkAge() {
   twentyOneDb.setFullYear(twentyOneDb.getFullYear() - 21); //produit la date actuelle(twentyOneDb) arrondie à l'année et y applique l'opération:
   // twentyOneDb je prend et j'arrondi à l'année(.getFullYear()) et j'y fait moins 21 ;;resultat une année de ref.
   if (bd <= twentyOneDb) {
+    // showSuccess(dateSaisie);
     alert("Vous avez plus de 21 ans.");
   } else {
     alert("Vous devez avoir au moins 21 ans pour continuer.");
@@ -170,52 +172,52 @@ if (target === emailInput) {
 });
 
 // Ajout d'un écouteur d'événement 'input' à chaque champ
-userNameInput.addEventListener("input", () => {
+// userNameInput.addEventListener("input", () => {
   // const userName = userNameInput.value.toLowerCase(); // Convertir en minuscules pour vérifier sans distinction de cas
 
   // Vérifier si le userName contient les valeurs interdites
-  if (
-    userName.includes("root") ||
-    userName.includes("afpa") ||
-    userName.includes("deus")
-  ) {
-    alert(
-      'Le nom d\'utilisateur ne peut pas contenir "root", "afpa" ou "deus"'
-    );
-  }
-});
+  // if (
+    // userName.includes("root") ||
+    // userName.includes("afpa") ||
+    // userName.includes("deus")
+  // ) {
+    // alert(
+      // 'Le nom d\'utilisateur ne peut pas contenir "root", "afpa" ou "deus"'
+    // );
+  // }
+// });
 
-nomInput.addEventListener("input", () => {
-  const nom = nomInput.value;
+// nomInput.addEventListener("input", () => {
+  // const nom = nomInput.value;
 
   // Vérifier si le nom a une longueur valide
-  if (nom.length < 3 || nom.length > 15) {
-    alert(
-      "Le nom doit avoir une longueur minimale de 3 caractères et maximale de 15 caractères."
-    );
-  }
-});
+  // if (nom.length < 3 || nom.length > 15) {
+    // alert(
+      // "Le nom doit avoir une longueur minimale de 3 caractères et maximale de 15 caractères."
+    // );
+  // }
+// });
 
-prenomInput.addEventListener("input", () => {
-  const prenom = prenomInput.value;
+// prenomInput.addEventListener("input", () => {
+  // const prenom = prenomInput.value;
 
   // Vérifier si le prénom a une longueur valide
-  if (prenom.length < 3 || prenom.length > 15) {
-    alert(
-      "Le prénom doit avoir une longueur minimale de 3 caractères et maximale de 15 caractères."
-    );
-  }
-});
+  // if (prenom.length < 3 || prenom.length > 15) {
+    // alert(
+      // "Le prénom doit avoir une longueur minimale de 3 caractères et maximale de 15 caractères."
+    // );
+  // }
+// });
 
-passwordInput.addEventListener("input", () => {
-  const password = passwordInput.value;
+// passwordInput.addEventListener("input", () => {
+  // const password = passwordInput.value;
 
   // Vérifier si le mot de passe répond aux critères requis
-  const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
-  if (!passwordRegex.test(password)) {
-    alert(
-      "Le mot de passe doit avoir au moins 8 caractères, au moins une minuscule, une majuscule, un chiffre et un caractère spécial parmi !@#$%^&*"
-    );
-  }
-});
+  // const passwordRegex =
+    // /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+  // if (!passwordRegex.test(password)) {
+    // alert(
+      // "Le mot de passe doit avoir au moins 8 caractères, au moins une minuscule, une majuscule, un chiffre et un caractère spécial parmi !@#$%^&*"
+    // );
+  // }
+// });
