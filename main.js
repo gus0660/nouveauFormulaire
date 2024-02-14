@@ -141,13 +141,19 @@ document.addEventListener('input', function(e) {
   if (target === userNameInput) {
     if (!isRequired(userNameInput.value)) {
       alert('Le nom d\'utilisateur est requis.');
-    } else if (!isNameValid(userNameInput.value)) {
+    } else if (!isBetween(nom.value.length, 3, 15)) {
+      alert('Le nom d\'utilisateur doit avoir une longueur minimale de 3 caractères et maximale de 15 caractères.');
+  } else if (!isNameValid(userNameInput.value)) {
       alert('Le nom d\'utilisateur ne peut pas contenir "root", "afpa" ou "deus" et doit uniquement contenir des lettres.');
     }
 }
 if (target === nomInput) {
-    if (nomInput.value.length < 3 || nomInput.value.length > 15) {
-        alert("Le nom doit avoir une longueur minimale de 3 caractères et maximale de 15 caractères.");
+    if (!isRequired(nomInput.value)) {
+      alert('votre Nom est requis.')
+    } else if (!isBetween(nom.value.length, 3, 15)) {
+      alert('Votre Nom doit avoir une longueur minimale de 3 caractères et maximale de 15 caractères.');
+    } else if (!isNameValid(nomInput.value)) {
+      alert('Votre Nom ne peut pas contenir "root", "afpa" ou "deus" et doit uniquement contenir des lettres.')
     }
 }
 if (target ===prenomInput) {
