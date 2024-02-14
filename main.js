@@ -47,6 +47,12 @@ function showSuccess(input) {
   const errorEl = formField.querySelector("small");
   errorEl.textContent = "";
 }
+// fonction pour valider l'email
+function isValidEmail(email) {
+  const regex =
+    /^(?!root@afpa\.fr|afpa@afpa\.com|deus@afpa\.org)(?!.*@yopmail\.com$)[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return regex.test(email);
+}
 // fonction pour valider l'age
 function verifAge(element) {
   const dateSaisie = element.value; // je crée une constante qui capture l'age saisi dans le input "#dob"
@@ -61,12 +67,6 @@ function verifAge(element) {
     return true
   }
 }
-function isValidEmail(email) {
-  const regex =
-    /^(?!root@afpa\.fr|afpa@afpa\.com|deus@afpa\.org)(?!.*@yopmail\.com$)[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  return regex.test(email);
-}
-
 const checkUserName = () => {
   let valid = false;
   const min = 3,
@@ -90,7 +90,18 @@ const checkUserName = () => {
   }
   return valid;
 };
-
+const checkAge = () => {
+  let valid = false
+  if(!isRequired(dobEl.value)){
+    showError(dobEl, "vous devez fournir un age")
+  }else if(!verifAge(dobEl)){
+    showError(dobEl, "vous n'avez pas l'age")
+  }else {
+    showSuccess(dobEl)
+    valid = true
+  }
+  return valid
+}
 const checkName = () => {
   let valid = false;
   const min = 3,
@@ -111,18 +122,7 @@ const checkName = () => {
 };
 
 
-const checkAge = () => {
-  let valid = false
-  if(!isRequired(dobEl.value)){
-    showError(dobEl, "vous devez fournir un age")
-  }else if(!verifAge(dobEl)){
-    showError(dobEl, "vous n'avez pas l'age")
-  }else {
-    showSuccess(dobEl)
-    valid = true
-  }
-  return valid
-}
+
 const checkFirstname = () => {
   let valid = false
   if(!isRequired(firstNameEl.value)){
