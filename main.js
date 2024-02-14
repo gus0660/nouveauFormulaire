@@ -115,11 +115,37 @@ function checkAge() {
 
 // il faut mettre un écouteur d'évenement sur chaque input pour checker si c'est bon
 // Sélection des éléments d'entrée
-const userNameInput = document.getElementById("userName");
-const nomInput = document.getElementById("nom");
-const prenomInput = document.getElementById("prenom");
-const passwordInput = document.getElementById("password");
+const userNameInput = document.querySelector("#userName");
+const nomInput = document.querySelector("#name");
+const prenomInput = document.querySelector("#firstname");
+const passwordInput = document.querySelector("#password");
+const emailInput = document.querySelector('#email')
 
+document.addEventListener('input', function(e) {
+  const target = e.target;
+  if (target === userNameInput) {
+    if ( userNameInput.value.includes("root") || userNameInput.value.includes("afpa") || userNameInput.value.includes("deus")) {
+        alert('Le nom d\'utilisateur ne peut pas contenir "root", "afpa" ou "deus"');
+    }
+}
+
+if (target === nomInput) {
+    if (nomInput.value.length < 3 || nomInput.value.length > 15) {
+        alert("Le nom doit avoir une longueur minimale de 3 caractères et maximale de 15 caractères.");
+    }
+}
+if (target ===prenomInput) {
+  if (prenomInput.length < 3 || prenomInput.length > 15) {
+  alert(
+    "Le prénom doit avoir une longueur minimale de 3 caractères et maximale de 15 caractères."
+  );
+}
+}
+if (target === emailInput) {
+  isValidEmail();
+}
+
+});
 
 // Ajout d'un écouteur d'événement 'input' à chaque champ
 userNameInput.addEventListener("input", () => {
