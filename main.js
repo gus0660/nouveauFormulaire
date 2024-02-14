@@ -93,14 +93,7 @@ form.addEventListener("submit", (e) => {
 // Les noms et prénoms ne pourront pas contenir de chiffres et devront avoir une taille minimale de 3 caractères et un max de 15.
 // Le mot de passe a huit caractères ou plus. Et il doit contenir 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et au moins un caractère spécial dans cet ensemble ( !@#$%^&*).
 
-// let userNameOk = checkUserName(),
-// nameOk = checkName();
 
-// let isFormValid = userNameOk && nameOk;
-// if(isFormValid){
-//     console.log('Tout est Ok pour l\'envoi')
-// }
-// })
 function isValidEmail(email) {
   const regex =
     /^(?!root@afpa\.fr|afpa@afpa\.com|deus@afpa\.org)(?!.*@yopmail\.com$)[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
