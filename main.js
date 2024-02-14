@@ -123,7 +123,10 @@ function checkAge() {
 // function showError()
 // fonction qui permette d'afficher l'element valide en vert :
 // function showSuccess()
-// 
+// fonction pour valider l'email :
+// function isValidEmail(email)
+// fonction pour valider l'age :
+// function checkAge()
 // il faut mettre un écouteur d'évenement sur chaque input pour checker si c'est bon
 // Sélection des éléments d'entrée
 const userNameInput = document.querySelector("#userName");
