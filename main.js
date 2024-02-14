@@ -1,12 +1,14 @@
 // Je dois créer mes variables
 const form = document.querySelector("#signup");
+// ci-dessous la créations de variables spécifique aux formulaires,pas besion de querySelevtor car
+//  le "document.forms" étant prévus pour aller chercher dans le DOM les elements par leur nom.
 const usernameEl = document.forms.formValidate.username;
 const nameEl = document.forms.formValidate.name;
 const firstNameEl = document.forms.formValidate.firstname;
 const emailEl = document.forms.formValidate.email;
 const dobEl = document.forms.formValidate.dob;
 const  passEl = document.forms.formValidate.password;
-const confEl = document.forms.formValidate['confirm-password'];
+const confEl = document.forms.formValidate['confirm-password'];// ya un tréma donc on met des crochets et simples guillemets
 const sexEl = document.forms.formValidate.sex;
 // J'ai besoin d'une fonction qui vérifie si la valeur d'un input est vide
 function isRequired(elementValue) {
