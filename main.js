@@ -120,6 +120,7 @@ const nomInput = document.getElementById("nom");
 const prenomInput = document.getElementById("prenom");
 const passwordInput = document.getElementById("password");
 
+
 // Ajout d'un écouteur d'événement 'input' à chaque champ
 userNameInput.addEventListener("input", () => {
   // const userName = userNameInput.value.toLowerCase(); // Convertir en minuscules pour vérifier sans distinction de cas
