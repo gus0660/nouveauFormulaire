@@ -112,7 +112,18 @@ function checkAge() {
     alert("Vous devez avoir au moins 21 ans pour continuer.");
   }
 }
-
+// je récapitule les fonctions que j'ai déjas en place :
+// fonction qui vérifie si la valeur d'un input est vide :
+// function isRequired
+// fonction de vérification de taille :
+// function isBetween
+// fonction qui interdit les mots "root", "afpa", "deus" et qui n'autorise que la saisie de lettre :
+// function isNameValid
+// fonction qui permette d'afficher les erreurs en rouge :
+// function showError
+// fonction qui permette d'afficher l'element valide en vert :
+// function showSuccess
+// 
 // il faut mettre un écouteur d'évenement sur chaque input pour checker si c'est bon
 // Sélection des éléments d'entrée
 const userNameInput = document.querySelector("#userName");
