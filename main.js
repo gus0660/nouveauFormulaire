@@ -47,6 +47,25 @@ function showSuccess(input) {
   const errorEl = formField.querySelector("small");
   errorEl.textContent = "";
 }
+// fonction pour valider l'age
+function verifAge(element) {
+  const dateSaisie = element.value; // je crée une constante qui capture l'age saisi dans le input "#dob"
+  let bd = new Date(dateSaisie); //le crée une let qui est la conversion de la date saisie(dateSaisie) en objet que javascript comprend (new Date)
+  let twentyOneDb = new Date(); //création d'une let qui correspond à la date actuelle(de l'ordi) = new Date
+  twentyOneDb.setFullYear(twentyOneDb.getFullYear() - 21); //produit la date actuelle(twentyOneDb) arrondie à l'année et y applique l'opération:
+  // twentyOneDb je prend et j'arrondi à l'année(.getFullYear()) et j'y fait moins 21 ;;resultat une année de ref.
+  if (bd <= twentyOneDb) {
+    // showSuccess(dateSaisie);
+    return false
+  } else {
+    return true
+  }
+}
+function isValidEmail(email) {
+  const regex =
+    /^(?!root@afpa\.fr|afpa@afpa\.com|deus@afpa\.org)(?!.*@yopmail\.com$)[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return regex.test(email);
+}
 
 const checkUserName = () => {
   let valid = false;
@@ -90,25 +109,8 @@ const checkName = () => {
   }
   return valid;
 };
-function isValidEmail(email) {
-  const regex =
-    /^(?!root@afpa\.fr|afpa@afpa\.com|deus@afpa\.org)(?!.*@yopmail\.com$)[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  return regex.test(email);
-}
-// pour valider l'age
-function verifAge(element) {
-  const dateSaisie = element.value; // je crée une constante qui capture l'age saisi dans le input "#dob"
-  let bd = new Date(dateSaisie); //le crée une let qui est la conversion de la date saisie(dateSaisie) en objet que javascript comprend (new Date)
-  let twentyOneDb = new Date(); //création d'une let qui correspond à la date actuelle(de l'ordi) = new Date
-  twentyOneDb.setFullYear(twentyOneDb.getFullYear() - 21); //produit la date actuelle(twentyOneDb) arrondie à l'année et y applique l'opération:
-  // twentyOneDb je prend et j'arrondi à l'année(.getFullYear()) et j'y fait moins 21 ;;resultat une année de ref.
-  if (bd <= twentyOneDb) {
-    // showSuccess(dateSaisie);
-    return false
-  } else {
-    return true
-  }
-}
+
+
 const checkAge = () => {
   let valid = false
   if(!isRequired(dobEl.value)){
