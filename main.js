@@ -148,8 +148,9 @@ form.addEventListener("submit", (e) => {
     ageOk = checkAge(),
     firstnameOk = checkFirstname(),
     emailOk = checkEmail(),
-    passOk = checkPassword();
-  let formIsValid = nameOk && userNameOk && ageOk && firstnameOk && emailOk && passOk;
+    passOk = checkPassword(),
+    confPassOk = checkConfPass();
+  let formIsValid = nameOk && userNameOk && ageOk && firstnameOk && emailOk && passOk && confPassOk;
 
   if (formIsValid) {
     console.log("tout est bon pour envoi");
@@ -170,13 +171,34 @@ const checkEmail = () => {
 const checkPassword = () => {
   let valid = false;
   const passW = passEl.value.trim();
-  if (isPasswordValid(passW)) {
+  if (!isRequired(passW)) {
+    showError(passEl, "Le mot de passe ne peut être vide")
+  }else if (!isPasswordValid(passW)) {
     showError(
       passEl,
       " Le mot de passe doit comprendre au moins une majuscule un chiffre et un caratére spécial situé dans cette liste : (!@#$%^&*)"
     );
   } else {
     showSuccess(passEl,"password ok");
+    valid = true;
+  }
+  return valid;
+};
+const checkConfPass = () => {
+  let valid = false;
+  const confPass = confEl.value.trim();
+  const passW = passEl.value.trim()
+  if (!isRequired(confEl)) {
+    showError(confEl, "La confirmation du mot de passe ne peut être vide")
+  }else if (!isPasswordValid(confPass)) {
+    showError(
+      confEl,
+      " Le mot de passe doit comprendre au moins une majuscule un chiffre et un caratére spécial situé dans cette liste : (!@#$%^&*)"
+    );
+  } else if(confPass!==passW) {
+    showError(confEl, "N'est pas identique au mot de passe")
+  } else {
+    showSuccess(confEl,"password ok");
     valid = true;
   }
   return valid;
