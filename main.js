@@ -7,8 +7,8 @@ const nameEl = document.forms.formValidate.name;
 const firstNameEl = document.forms.formValidate.firstname;
 const emailEl = document.forms.formValidate.email;
 const dobEl = document.forms.formValidate.dob;
-const  passEl = document.forms.formValidate.password;
-const confEl = document.forms.formValidate['confirm-password'];// ya un tréma donc on met des crochets et simples guillemets
+const passEl = document.forms.formValidate.password;
+const confEl = document.forms.formValidate["confirm-password"]; // ya un tréma donc on met des crochets et simples guillemets
 const sexEl = document.forms.formValidate.sex;
 // J'ai besoin d'une fonction qui vérifie si la valeur d'un input est vide
 function isRequired(elementValue) {
@@ -61,13 +61,13 @@ function verifAge(element) {
   twentyOneDb.setFullYear(twentyOneDb.getFullYear() - 21); //produit la date actuelle(twentyOneDb) arrondie à l'année et y applique l'opération:
   // twentyOneDb je prend et j'arrondi à l'année(.getFullYear()) et j'y fait moins 21 ;;resultat une année de ref.
   if (bd <= twentyOneDb) {
-    return false
+    return false;
   } else {
-    return true
+    return true;
   }
 }
 
-// pour le fonctionnement même du code il faut faire des fonctions fléchées qui commencent par la création 
+// pour le fonctionnement même du code il faut faire des fonctions fléchées qui commencent par la création
 // d'une constante et qui vont utiliser les fonctions simples qui ont été précédement réalisées.
 const checkUserName = () => {
   let valid = false;
@@ -111,45 +111,53 @@ const checkName = () => {
   return valid;
 };
 const checkAge = () => {
-  let valid = false
-  if(!isRequired(dob.value)){
-    showError(dobEl, "vous devez fournir un age")
-  }else if(verifAge(dobEl)){
-    showError(dobEl, "vous n'avez pas l'age")
-  }else {
-    showSuccess(dobEl)
-    valid = true
+  let valid = false;
+  if (!isRequired(dob.value)) {
+    showError(dobEl, "vous devez fournir un age");
+  } else if (verifAge(dobEl)) {
+    showError(dobEl, "vous n'avez pas l'age");
+  } else {
+    showSuccess(dobEl);
+    valid = true;
   }
-  return valid
-}
-
+  return valid;
+};
 
 const checkFirstname = () => {
-  let valid = false
-  if(!isRequired(firstNameEl.value)){
-    showError(firstNameEl, "ne peut être vide")
-  }else if(!isNameValid(firstNameEl.value)){
-    showError(firstNameEl, "vous devez respecter un format precis")
-  }else{
-    showSuccess(firstNameEl)
-    valid = true
+  let valid = false;
+  if (!isRequired(firstNameEl.value)) {
+    showError(firstNameEl, "ne peut être vide");
+  } else if (!isNameValid(firstNameEl.value)) {
+    showError(firstNameEl, "vous devez respecter un format precis");
+  } else {
+    showSuccess(firstNameEl);
+    valid = true;
   }
-  return valid
-}
+  return valid;
+};
 // Je dois mettre en place un ecouteur d'évenement sur le submit de ma forme qui doit empecher la soumission du formulaire au serveur afin de pouvoir emettre les erreurs coté front sans rechargement de la page
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   let nameOk = checkName(),
-  userNameOk = checkUserName(),
-  ageOk = checkAge(),
-  firstnameOk = checkFirstname();
+    userNameOk = checkUserName(),
+    ageOk = checkAge(),
+    firstnameOk = checkFirstname(),
+    emailOk = checkEmail();
+  let formIsValid = nameOk && userNameOk && ageOk && firstnameOk && emailOk;
 
-let formIsValid = nameOk && userNameOk && ageOk && firstnameOk;
-
-if(formIsValid){
-  console.log('tout est bon pour envoi')
-}
-
-
+  if (formIsValid) {
+    console.log("tout est bon pour envoi");
+  }
 });
+const checkEmail = () => {
+  let valid = false;
+  const email = emailEl.value.trim();
+  if (!isValidEmail(email)) {
+    showError(emailEl, "email invalide");
+  } else {
+    showSuccess(emailEl, "email valide");
+    valid = true;
+  }
+  return valid;
+};
