@@ -190,7 +190,7 @@ const checkConfPass = () => {
   let valid = false;
   const confPass = confEl.value.trim();
   const passW = passEl.value.trim()
-  if (!isRequired(confEl)) {
+  if (!isRequired(confPass)) {
     showError(confEl, "La confirmation du mot de passe ne peut être vide")
   }else if (!isPasswordValid(confPass)) {
     showError(
@@ -208,6 +208,12 @@ const checkConfPass = () => {
 const checkSex = () => {
   let valid = false;
   const quelSex = sexEl.value;
-  if()
+  if(!isRequired(quelSex)) {
+    showError(sexEl, "Vous devez choisir")
+  }else{
+    showSuccess(sexEl)
+    valid = true
+  }
+  return valid
   // console.log(quelSex)
 }
