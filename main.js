@@ -66,9 +66,13 @@ function verifAge(element) {
     return true;
   }
 }
-
+// fonction pour valider le password (by pierre car le regex = PFOUUUU !)
+function isPasswordValid(password) {
+  const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/;
+  return re.test(password);
+}
 // pour le fonctionnement même du code il faut faire des fonctions fléchées qui commencent par la création
-// d'une constante et qui vont utiliser les fonctions simples qui ont été précédement réalisées.
+// d'une constante et qui vont utiliser les fonctions "simples" qui ont été précédement réalisées.
 const checkUserName = () => {
   let valid = false;
   const min = 3,
@@ -161,3 +165,4 @@ const checkEmail = () => {
   }
   return valid;
 };
+// isPasswordValid
