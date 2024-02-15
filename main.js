@@ -112,7 +112,7 @@ const checkName = () => {
 };
 const checkAge = () => {
   let valid = false
-  if(!isRequired(dobEl.value)){
+  if(!isRequired(dob.value)){
     showError(dobEl, "vous devez fournir un age")
   }else if(!verifAge(dobEl)){
     showError(dobEl, "vous n'avez pas l'age")
