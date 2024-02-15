@@ -71,6 +71,7 @@ function isPasswordValid(password) {
   const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/;
   return re.test(password);
 }
+
 // pour le fonctionnement même du code il faut faire des fonctions fléchées qui commencent par la création
 // d'une constante et qui vont utiliser les fonctions "simples" qui ont été précédement réalisées.
 const checkUserName = () => {
@@ -149,8 +150,9 @@ form.addEventListener("submit", (e) => {
     firstnameOk = checkFirstname(),
     emailOk = checkEmail(),
     passOk = checkPassword(),
-    confPassOk = checkConfPass();
-  let formIsValid = nameOk && userNameOk && ageOk && firstnameOk && emailOk && passOk && confPassOk;
+    confPassOk = checkConfPass(),
+    sexOk = checkSex();
+  let formIsValid = nameOk && userNameOk && ageOk && firstnameOk && emailOk && passOk && confPassOk && sexOk;
 
   if (formIsValid) {
     console.log("tout est bon pour envoi");
@@ -203,3 +205,9 @@ const checkConfPass = () => {
   }
   return valid;
 };
+const checkSex = () => {
+  let valid = false;
+  const quelSex = sexEl.value;
+  if()
+  // console.log(quelSex)
+}
