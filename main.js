@@ -147,8 +147,9 @@ form.addEventListener("submit", (e) => {
     userNameOk = checkUserName(),
     ageOk = checkAge(),
     firstnameOk = checkFirstname(),
-    emailOk = checkEmail();
-  let formIsValid = nameOk && userNameOk && ageOk && firstnameOk && emailOk;
+    emailOk = checkEmail(),
+    passOk = checkPassword();
+  let formIsValid = nameOk && userNameOk && ageOk && firstnameOk && emailOk && passOk;
 
   if (formIsValid) {
     console.log("tout est bon pour envoi");
@@ -169,13 +170,13 @@ const checkEmail = () => {
 const checkPassword = () => {
   let valid = false;
   const passW = passEl.value.trim();
-  if (!isPasswordValid(passW)) {
+  if (isPasswordValid(passW)) {
     showError(
       passEl,
       " Le mot de passe doit comprendre au moins une majuscule un chiffre et un caratére spécial situé dans cette liste : (!@#$%^&*)"
     );
   } else {
-    showSuccess(passEl);
+    showSuccess(passEl,"password ok");
     valid = true;
   }
   return valid;
