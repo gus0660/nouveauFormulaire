@@ -81,7 +81,7 @@ const checkUserName = () => {
       usernameEl,
       `Le nom d'utilisateur doit avoir entre ${min} et ${max} caractères.`
     );
-  } else if (!isNameValid(usernameEl)) {
+  } else if (!isNameValid(username)) {
     showError(
       usernameEl,
       `Le nom d'utilisateur ne doit contenir que des lettres.`
@@ -92,18 +92,6 @@ const checkUserName = () => {
   }
   return valid;
 };
-const checkAge = () => {
-  let valid = false
-  if(!isRequired(dobEl.value)){
-    showError(dobEl, "vous devez fournir un age")
-  }else if(!verifAge(dobEl)){
-    showError(dobEl, "vous n'avez pas l'age")
-  }else {
-    showSuccess(dobEl)
-    valid = true
-  }
-  return valid
-}
 const checkName = () => {
   let valid = false;
   const min = 3,
@@ -122,6 +110,19 @@ const checkName = () => {
   }
   return valid;
 };
+const checkAge = () => {
+  let valid = false
+  if(!isRequired(dobEl.value)){
+    showError(dobEl, "vous devez fournir un age")
+  }else if(!verifAge(dobEl)){
+    showError(dobEl, "vous n'avez pas l'age")
+  }else {
+    showSuccess(dobEl)
+    valid = true
+  }
+  return valid
+}
+
 
 const checkFirstname = () => {
   let valid = false
