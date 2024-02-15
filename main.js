@@ -224,7 +224,7 @@ const checkSex = () => {
   }
   return valid;
 };
-// bon maintenant il fait faire en sorte que des que l'utilisateur commenc à taper quelque chose sur le formulaire
+// bon maintenant il fait faire en sorte que des que l'utilisateur commence à taper quelque chose sur le formulaire
 // il change de couleur en fonction des validations mises en places: un addEvenListener sur le formulaire (form)
 // et qui déclenche les vérifs toutes les 1/2 secondes, pour ça ce sera "debounce" donc en premier,
 // mise en place de la fonction fléchée "debounce"
@@ -241,3 +241,4 @@ const debounce = (jss, delay = 500) => {
     }, delay);
   };
 };
+// ensuite l'addEventListener
