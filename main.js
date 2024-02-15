@@ -242,3 +242,33 @@ const debounce = (jss, delay = 500) => {
   };
 };
 // ensuite l'addEventListener
+form.addEventListener('input', 
+debounce(function(e) {
+  switch(e.target.id) {
+    case "username":
+      checkUserName();
+      break;
+    case "name":
+      checkName();
+      break;
+    case "firstname":
+      checkFirstname();
+      break;
+    case "email":
+      checkEmail();
+      break;
+    case "dob":
+      checkAge();
+      break
+    case "password":
+      checkPassword();
+      break;
+    case "confirm-password":
+      checkConfPass();
+      break;
+    case "sex":
+      checkSex();
+      break;
+  }
+})
+)
