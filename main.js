@@ -152,7 +152,15 @@ form.addEventListener("submit", (e) => {
     passOk = checkPassword(),
     confPassOk = checkConfPass(),
     sexOk = checkSex();
-  let formIsValid = nameOk && userNameOk && ageOk && firstnameOk && emailOk && passOk && confPassOk && sexOk;
+  let formIsValid =
+    nameOk &&
+    userNameOk &&
+    ageOk &&
+    firstnameOk &&
+    emailOk &&
+    passOk &&
+    confPassOk &&
+    sexOk;
 
   if (formIsValid) {
     console.log("tout est bon pour envoi");
@@ -174,14 +182,14 @@ const checkPassword = () => {
   let valid = false;
   const passW = passEl.value.trim();
   if (!isRequired(passW)) {
-    showError(passEl, "Le mot de passe ne peut être vide")
-  }else if (!isPasswordValid(passW)) {
+    showError(passEl, "Le mot de passe ne peut être vide");
+  } else if (!isPasswordValid(passW)) {
     showError(
       passEl,
       " Le mot de passe doit comprendre au moins une majuscule un chiffre et un caratére spécial situé dans cette liste : (!@#$%^&*)"
     );
   } else {
-    showSuccess(passEl,"password ok");
+    showSuccess(passEl, "password ok");
     valid = true;
   }
   return valid;
@@ -189,18 +197,18 @@ const checkPassword = () => {
 const checkConfPass = () => {
   let valid = false;
   const confPass = confEl.value.trim();
-  const passW = passEl.value.trim()
+  const passW = passEl.value.trim();
   if (!isRequired(confPass)) {
-    showError(confEl, "La confirmation du mot de passe ne peut être vide")
-  }else if (!isPasswordValid(confPass)) {
+    showError(confEl, "La confirmation du mot de passe ne peut être vide");
+  } else if (!isPasswordValid(confPass)) {
     showError(
       confEl,
       " Le mot de passe doit comprendre au moins une majuscule un chiffre et un caratére spécial situé dans cette liste : (!@#$%^&*)"
     );
-  } else if(confPass!==passW) {
-    showError(confEl, "N'est pas identique au mot de passe")
+  } else if (confPass !== passW) {
+    showError(confEl, "N'est pas identique au mot de passe");
   } else {
-    showSuccess(confEl,"password ok");
+    showSuccess(confEl, "password ok");
     valid = true;
   }
   return valid;
@@ -208,16 +216,28 @@ const checkConfPass = () => {
 const checkSex = () => {
   let valid = false;
   const quelSex = sexEl.value;
-  if(!isRequired(quelSex)) {
-    showError(sexEl, "Vous devez choisir")
-  }else{
-    showSuccess(sexEl)
-    valid = true
+  if (!isRequired(quelSex)) {
+    showError(sexEl, "Vous devez choisir");
+  } else {
+    showSuccess(sexEl);
+    valid = true;
   }
-  return valid
-  // console.log(quelSex)
-}
+  return valid;
+};
 // bon maintenant il fait faire en sorte que des que l'utilisateur commenc à taper quelque chose sur le formulaire
 // il change de couleur en fonction des validations mises en places: un addEvenListener sur le formulaire (form)
 // et qui déclenche les vérifs toutes les 1/2 secondes, pour ça ce sera "debounce" donc en premier,
 // mise en place de la fonction fléchée "debounce"
+const debounce = (jss, delay = 500) => {
+  let timeoutId;
+  return (...args) => {
+    // cancel the previous timer
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    // setup a new timer
+    timeoutId = setTimeout(() => {
+      jss.apply(null, args);
+    }, delay);
+  };
+};
