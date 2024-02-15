@@ -166,3 +166,17 @@ const checkEmail = () => {
   return valid;
 };
 // isPasswordValid
+const checkPassword = () => {
+  let valid = false;
+  const passW = passEl.value.trim();
+  if (!isPasswordValid(passW)) {
+    showError(
+      passEl,
+      " Le mot de passe doit comprendre au moins une majuscule un chiffre et un caratére spécial situé dans cette liste : (!@#$%^&*)"
+    );
+  } else {
+    showSuccess(passEl);
+    valid = true;
+  }
+  return valid;
+};
